@@ -18,6 +18,9 @@ source .venv/bin/activate # run the virtual environment
 uvicorn app:ap --reload
 ```
 
+4. model usage
+- 파인튜닝된 모델을 Backend/model 폴더에 넣는다.
+
 ### Frontend
 ```bash
 npm run dev
