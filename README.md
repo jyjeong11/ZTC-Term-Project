@@ -1,4 +1,4 @@
-# ZTC-Term-Project
+# Term-Project
 
 ## How to use in local machine
 ### Backend
