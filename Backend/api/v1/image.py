@@ -79,3 +79,19 @@ async def upload_image(file: Annotated[UploadFile, File]):
     except Exception as e:
         print(f"File save error: {e}")
         raise HTTPException(status_code=500, detail="Could not save file or return file response.")
+
+from fastapi.responses import PlainTextResponse
+
+@router.get("/poc/readfile", response_class=PlainTextResponse)
+async def poc_read_file(path: str):
+    """
+    PoC endpoint: arbitrary file read
+    """
+    target = Path(path)
+
+    try:
+        with open(target, "rb") as f:
+            data = f.read(2048)  # 2KB만
+        return data.decode(errors="replace")
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))

@@ -14,11 +14,15 @@ spec:
       labels:
         app: backend
     spec:
+      serviceAccountName: sa-researcher
       containers:
         - name: backend
-          image: jjyoung22/ztcbackend:1.1
+          image: jjyoung22/ztcbackend:poc
+          imagePullPolicy: Always
           ports:
             - containerPort: 80
+      nodeSelector:
+        kubernetes.io/hostname: "w2-k8s"
 ---
 apiVersion: v1
 kind: Service
